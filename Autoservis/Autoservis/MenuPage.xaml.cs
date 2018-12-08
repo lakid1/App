@@ -17,7 +17,7 @@ namespace Autoservis
             {
                 new MenuItem {Name = "DashBoard", Link = new DashBoard(), Icon="home.png"},
                 new MenuItem {Name = "Servis", Link = new Service(), Icon="service.png"},
-                new MenuItem {Name = "Servis", Link = new History(), Icon="history.png"}
+                new MenuItem {Name = "Historie", Link = new History(), Icon="history.png"}
             };
             Detail = new NavigationPage(new DashBoard());
         }

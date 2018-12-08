@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:Autoservis"
              x:Class="Autoservis.MenuPage" 
              MasterBehavior="Popover">
-    
+
     <MasterDetailPage.Master>
         <ContentPage Title="Master" Icon="hamburger.png">
             <ListView x:Name="listView" HasUnevenRows="True" ItemSelected="ListView_ItemSelected">
@@ -25,6 +25,6 @@
     <MasterDetailPage.Detail>
         <ContentPage></ContentPage>
     </MasterDetailPage.Detail>
-   
+
 
 </MasterDetailPage>
