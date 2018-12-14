@@ -17,9 +17,23 @@ namespace Autoservis
             InitializeComponent();
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+
+
+        private async void Button_ClickedAsync(object sender, EventArgs e)
         {
-            Application.Current.MainPage = new MenuPage();
+            if (email.Text != "" && password.Text != "")
+            {
+                var call = new RestApi();
+                if (await call.Login(email.Text, password.Text))
+                    Application.Current.MainPage = new MenuPage();
+                else
+                    await DisplayAlert("Error", "Nesprávné jméno nebo heslo", "OK");
+            }
+            else
+            {
+                email.Focus();
+            }
+
         }
     }
 }

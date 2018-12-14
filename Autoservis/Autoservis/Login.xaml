@@ -11,9 +11,9 @@
                 <Label FontSize="Medium"  Text="Prosím přihlaste se"></Label>
             </StackLayout>
             <Grid AbsoluteLayout.LayoutBounds="0.5, 0.5, 1, 200" AbsoluteLayout.LayoutFlags="PositionProportional, WidthProportional">
-                <Entry Grid.Column="0" Grid.Row="0" Keyboard="Email" Placeholder="E-mail"></Entry>
-                <Entry Grid.Column="0" Grid.Row="1" IsPassword="True" Placeholder="Password"></Entry>
-                <Button Grid.Column="0" Grid.Row="2" Text="Login" Clicked="Button_Clicked"></Button>
+                <Entry x:Name="email" Grid.Column="0" Grid.Row="0" Keyboard="Email" Placeholder="E-mail"></Entry>
+                <Entry x:Name="password" Grid.Column="0" Grid.Row="1" IsPassword="True" Placeholder="Password"></Entry>
+                <Button Grid.Column="0" Grid.Row="2" Text="Login" Clicked="Button_ClickedAsync"></Button>
             </Grid>
         </AbsoluteLayout>
     </ContentPage.Content>

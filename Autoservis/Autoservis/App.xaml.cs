@@ -7,11 +7,13 @@ namespace Autoservis
 {
     public partial class App : Application
     {
+
+
         public App()
         {
             InitializeComponent();
 
-            MainPage = new Login();
+            MainPage = new InitPage();
         }
 
         protected override void OnStart()
@@ -27,6 +29,34 @@ namespace Autoservis
         protected override void OnResume()
         {
             // Handle when your app resumes
+        }
+        public string Token
+        {
+            get
+            {
+                if (Properties.ContainsKey("token"))
+                    return Properties["token"].ToString();
+
+                return "";
+            }
+            set
+            {
+                Properties["token"] = value;
+            }
+        }
+        public string ExpireDate
+        {
+            get
+            {
+                if (Properties.ContainsKey("date"))
+                    return Properties["date"].ToString();
+
+                return "";
+            }
+            set
+            {
+                Properties["date"] = value;
+            }
         }
     }
 }
