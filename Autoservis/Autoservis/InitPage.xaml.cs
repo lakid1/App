@@ -14,14 +14,14 @@ namespace Autoservis
     {
         public InitPage()
         {
-           InitializeComponent();
-            
+            InitializeComponent();
+
         }
         protected override void OnAppearing()
         {
-           
+
             CheckToken();
-            
+
         }
         public void CheckToken()
         {
@@ -34,17 +34,21 @@ namespace Autoservis
                 {
                     app.Token = "";
                     app.ExpireDate = "";
+                    app.MainPage = new Login();
                 }
                 else
                 {
                     app.MainPage = new MenuPage();
-                    
+
                 }
 
             }
+            else
+            {
+                app.MainPage = new Login();
+            }
 
-            app.MainPage = new Login();
-            
+
         }
 
     }

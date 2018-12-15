@@ -21,13 +21,17 @@ namespace Autoservis
 
         private async void Button_ClickedAsync(object sender, EventArgs e)
         {
-            if (email.Text != "" && password.Text != "")
+            if (email.Text != null && password.Text != null)
             {
                 var call = new RestApi();
                 if (await call.Login(email.Text, password.Text))
+                {
                     Application.Current.MainPage = new MenuPage();
+                }
                 else
+                {
                     await DisplayAlert("Error", "Nesprávné jméno nebo heslo", "OK");
+                }
             }
             else
             {

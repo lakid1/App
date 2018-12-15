@@ -6,7 +6,9 @@
              MasterBehavior="Popover">
 
     <MasterDetailPage.Master>
+        
         <ContentPage Title="Master" Icon="hamburger.png">
+            <StackLayout>
             <ListView x:Name="listView" HasUnevenRows="True" ItemSelected="ListView_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -19,6 +21,11 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+                <StackLayout>
+                    <Button Text="Odhlásit se" Clicked="Button_Clicked"></Button>
+                </StackLayout>
+            </StackLayout>
+            
         </ContentPage>
     </MasterDetailPage.Master>
 

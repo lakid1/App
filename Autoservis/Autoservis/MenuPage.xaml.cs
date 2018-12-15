@@ -12,7 +12,7 @@ namespace Autoservis
         public MenuPage()
         {
             InitializeComponent();
-            
+            // Create menu pages
             listView.ItemsSource = new List<MenuItem>
             {
                 new MenuItem {Name = "DashBoard", Link = new DashBoard(), Icon="home.png"},
@@ -22,11 +22,21 @@ namespace Autoservis
             Detail = new NavigationPage(new DashBoard());
         }
 
+        //Navigation select
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var Page = e.SelectedItem as MenuItem;
             Detail = new NavigationPage(Page.Link);
             IsPresented = false;
+        }
+
+        //Logout
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            var app = Application.Current as App;
+            app.Token = "";
+            app.ExpireDate = "";
+            app.MainPage = new Login();
         }
     }
 }
