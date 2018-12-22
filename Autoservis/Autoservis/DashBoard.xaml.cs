@@ -15,6 +15,7 @@ namespace Autoservis
 		public DashBoard ()
 		{
 			InitializeComponent ();
+            
 		}
 	}
 }

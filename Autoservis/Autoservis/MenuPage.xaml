@@ -22,7 +22,7 @@
                 </ListView.ItemTemplate>
             </ListView>
                 <StackLayout>
-                    <Button Text="Odhlásit se" Clicked="Button_Clicked"></Button>
+                    <Button Text="Odhlásit se" Clicked="LogoutButton_Clicked"></Button>
                 </StackLayout>
             </StackLayout>
             

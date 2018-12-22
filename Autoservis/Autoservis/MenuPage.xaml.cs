@@ -31,7 +31,7 @@ namespace Autoservis
         }
 
         //Logout
-        private void Button_Clicked(object sender, EventArgs e)
+        private void LogoutButton_Clicked(object sender, EventArgs e)
         {
             var app = Application.Current as App;
             app.Token = "";
