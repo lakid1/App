@@ -8,7 +8,7 @@ namespace Autoservis
     {
         public int Id { get; set; }
         public DateTime Datum { get; set; }
-        public string Stav { get; set; }
-        public string Nazev { get; set; }
+        public string Auto { get; set; }
+        public int Cena { get; set; }
     }
 }

@@ -20,7 +20,7 @@ namespace Autoservis
             this.Order = orderHistory;
             BindingContext = orderHistory;
             InitializeComponent();
-            Title = Order.Datum.ToString("dd/MM/yyyy") + " " + Order.Nazev.ToString();
+            Title = Order.Datum.ToString("dd/MM/yyyy") + " " + Order.Auto.ToString();
         }
         protected override async void OnAppearing()
         {

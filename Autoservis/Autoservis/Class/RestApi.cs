@@ -46,7 +46,8 @@ namespace Autoservis
                 if (String.IsNullOrWhiteSpace(searchText))
                     return response;
 
-                return response.Where(c => (c.Datum.ToShortDateString().Contains(searchText)) || (c.Nazev.Contains(searchText)));
+                return response.Where(c => (c.Datum.ToShortDateString().Contains(searchText)) || 
+                (c.Auto.ToLower().Contains(searchText.ToLower())) || (c.Cena.ToString().Contains(searchText)));
 
             }
             return null;
