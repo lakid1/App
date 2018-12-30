@@ -2,49 +2,43 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Autoservis.History"
-             Title="Historie">
+             Title="Historie"
+             >
     <ContentPage.Content>
-        <StackLayout Padding="30">
+        <StackLayout Padding="30,0,30,0">
             <SearchBar Placeholder="Vyhledat..." 
                        TextChanged="SearchBar_TextChanged"></SearchBar>
             <ListView x:Name="historyListView" 
                       ItemSelected="HistoryListView_ItemSelected" 
                       SeparatorVisibility="None" 
                       HasUnevenRows="True"
-                      >
+                      IsPullToRefreshEnabled="True"
+                      Refreshing="HistoryListView_Refreshing">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-
                         <ViewCell>
                             <Frame HasShadow="True"
-                                   BorderColor="Black"
-                                   Margin="0,5,0,5"
-                                   >
-                                <StackLayout Orientation="Horizontal"
-                                            >
+                               Margin="0,5,0,5"
+                               CornerRadius="100"
+                               BorderColor="#03a9f4">
+                                <StackLayout Orientation="Horizontal">
                                     <Image Source="wrench.png"></Image>
                                     <StackLayout Orientation="Vertical" 
                                                  HorizontalOptions="StartAndExpand"
-                                                  Padding="50,0,0,0">
+                                                 Padding="50,0,0,0">
                                         <Label Text="{Binding Datum, StringFormat='Datum: {0:dd/MM/yyyy}'}" ></Label>
                                         <Label Text="{Binding Auto , StringFormat='Vozidlo: {0}'}"></Label>
-                                        <Label Text="{Binding Cena , StringFormat='Celková cena: {0}'}"></Label>
+                                        <Label Text="{Binding Cena , StringFormat='Celková cena: {0} Kč'}"></Label>
                                     </StackLayout>
-                                    <AbsoluteLayout Margin="0,-18,-18,-18">
-                                        <BoxView BackgroundColor="#ff3300"  
-                                                 AbsoluteLayout.LayoutBounds="0,0,1,1" 
-                                                 AbsoluteLayout.LayoutFlags="All"
-                                                 >
+                                    <AbsoluteLayout Margin="0,-20,-20,-20">
+                                        <BoxView BackgroundColor="#03a9f4"  
+                                                 AbsoluteLayout.LayoutBounds="1,1,50,1" 
+                                                 AbsoluteLayout.LayoutFlags="PositionProportional,HeightProportional">
                                         </BoxView>
-                                        <Image BackgroundColor="#47d147" Source="arrow.png" AbsoluteLayout.LayoutBounds="0.5,0.5,1,1"
-                                               AbsoluteLayout.LayoutFlags="All">
-                                        </Image>
                                     </AbsoluteLayout>
                                 </StackLayout>
                             </Frame>
                         </ViewCell>
-
-
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

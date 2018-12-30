@@ -14,6 +14,7 @@ namespace Autoservis
             InitializeComponent();
 
             MainPage = new InitPage();
+           
         }
 
         protected override void OnStart()
@@ -43,6 +44,7 @@ namespace Autoservis
             {
                 Properties["token"] = value;
             }
+            
         }
         public string ExpireDate
         {

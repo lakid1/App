@@ -16,10 +16,11 @@ namespace Autoservis
             listView.ItemsSource = new List<MenuItem>
             {
                 new MenuItem {Name = "DashBoard", Link = new DashBoard(), Icon="home.png"},
-                new MenuItem {Name = "Servis", Link = new Service(), Icon="service.png"},
                 new MenuItem {Name = "Historie", Link = new History(), Icon="history.png"}
             };
             Detail = new NavigationPage(new DashBoard());
+            //var color = new AppColors();
+            Detail.SetValue(NavigationPage.BarBackgroundColorProperty, Color.FromHex("#0277bd"));
         }
 
         //Navigation select
@@ -27,6 +28,9 @@ namespace Autoservis
         {
             var Page = e.SelectedItem as MenuItem;
             Detail = new NavigationPage(Page.Link);
+            //var color = new AppColors();
+            Detail.SetValue(NavigationPage.BarBackgroundColorProperty, Color.FromHex("#0277bd"));
+            
             IsPresented = false;
         }
 

@@ -39,7 +39,7 @@ namespace Autoservis
                 else
                 {
                     app.MainPage = new MenuPage();
-
+                    
                 }
 
             }

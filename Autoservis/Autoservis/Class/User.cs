@@ -6,10 +6,10 @@ namespace Autoservis
 {
     class User
     {
-        public string email { get; set; }
-        public string password { get; set; }
-        public string token { get; set; }
-        public string date { get; set; }
-        public int id { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public string Token { get; set; }
+        public string Date { get; set; }
+        public int Id { get; set; }
     }
 }

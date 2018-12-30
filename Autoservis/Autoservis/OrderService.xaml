@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:date="clr-namespace:Autoservis.Class"
+             x:Class="Autoservis.OrderService"
+             Title="Objednat Servis"
+             >
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0">
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <Image x:Name="image" AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                   AbsoluteLayout.LayoutFlags="All"
+                   Aspect="AspectFill">
+                
+            </Image>
+            <Image Source="baseline_create_black_36.png" 
+                   AbsoluteLayout.LayoutBounds="0.5,0.2,130,130" 
+                   AbsoluteLayout.LayoutFlags="PositionProportional">
+                
+            </Image>
+            
+            <StackLayout AbsoluteLayout.LayoutBounds="0.5,0.5,0.8,0.3" 
+                         AbsoluteLayout.LayoutFlags="All"
+                         >
+                
+                <StackLayout Orientation="Vertical">
+                    <Label Text="Datum: "></Label>
+                    <DatePicker x:Name="datePicker"
+                                Date="{x:Static date:DateTimeHelper.Tomorrow}"
+                                MinimumDate="{x:Static date:DateTimeHelper.Tomorrow}"
+                                DateSelected="DatePicker_DateSelected">
+                        
+                    </DatePicker>
+                </StackLayout>
+                
+                <StackLayout Padding="0,20,0,20">
+                    <Label Text="Vozidlo: "></Label>
+                    <Picker x:Name="vozidloPicker" Title="Vyber vozidlo" SelectedIndexChanged="VozidloPicker_SelectedIndexChanged">
+                        
+                    </Picker>
+                </StackLayout>
+                
+                <Frame Padding="2"
+                       BorderColor="#03a9f4"
+                       CornerRadius="100">
+                    <Button Text="Objednat"
+                            BackgroundColor="#0277bd" 
+                            TextColor="White"
+                            BorderRadius="100"
+                            Clicked="Button_Clicked">
+                    </Button>
+                </Frame>
+                
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

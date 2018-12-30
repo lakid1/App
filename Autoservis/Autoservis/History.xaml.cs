@@ -42,6 +42,12 @@ namespace Autoservis
         {
             historyListView.ItemsSource = await call.GetOrderHistoriesAsync(e.NewTextValue);
         }
+
+        private async void HistoryListView_Refreshing(object sender, EventArgs e)
+        {
+            historyListView.ItemsSource = await call.GetOrderHistoriesAsync();
+            historyListView.EndRefresh();
+        }
     }
 
 

@@ -5,7 +5,119 @@
              Title="DashBoard">
     <ContentPage.Content>
         <StackLayout>
-            
+            <AbsoluteLayout>
+                <!--<Label Text="Něco se pokazilo ?" FontSize="Large" AbsoluteLayout.LayoutBounds="0.5,0.4,300,100"
+                             AbsoluteLayout.LayoutFlags="PositionProportional"></Label>-->
+                <Image x:Name="image" 
+                   AbsoluteLayout.LayoutBounds="0,0,1,300" 
+                   AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional" 
+                   Aspect="AspectFill"
+                   Opacity="0.65"
+                   BackgroundColor="#03a9f4"
+                   >
+                </Image>
+                <StackLayout AbsoluteLayout.LayoutBounds="0.5,0.5"
+                             AbsoluteLayout.LayoutFlags="PositionProportional"
+                             VerticalOptions="Center">
+
+                    <Frame BorderColor="#03a9f4"
+                           CornerRadius="100"
+                           Padding="2">
+                        <Button Text="Objednat Servis" 
+                                BackgroundColor="#0277bd" 
+                                TextColor="White"
+                                BorderRadius="100"
+                                Clicked="Button_Clicked"
+                                WidthRequest="300">
+                        </Button>
+                    </Frame>
+                </StackLayout>
+
+            </AbsoluteLayout>
+
+            <AbsoluteLayout Padding="30,0,0,0">
+
+                <StackLayout x:Name="errorListView" 
+                             Orientation="Vertical" 
+                             IsVisible="False" 
+                             AbsoluteLayout.LayoutBounds="0.5,1,1,300"
+                             AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
+                             Padding="0,50,0,0">
+                    <Image Source="baseline_wifi_off_black_48.png" 
+                           VerticalOptions="Center" 
+                           HorizontalOptions="Center">
+                    </Image>
+                    <Label FontSize="Large" Text="Chyba připojení, zkontrolujte své připojení k Internetu" 
+                           VerticalOptions="Center" 
+                           HorizontalOptions="Center">
+                    </Label>
+                </StackLayout>
+
+                <StackLayout x:Name="hideListView" 
+                             Orientation="Vertical" 
+                             IsVisible="False" 
+                             AbsoluteLayout.LayoutBounds="0.5,1,1,300"
+                             AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
+                             Padding="0,50,0,0">
+                    <Image Source="baseline_sentiment_very_satisfied_black_48.png" 
+                           VerticalOptions="Center" 
+                           HorizontalOptions="Center">
+                    </Image>
+                    <Label FontSize="Large" Text="Všechny vozy jsou v pořádku u Vás doma" 
+                           VerticalOptions="Center" 
+                           HorizontalOptions="Center">
+                    </Label>
+                </StackLayout>
+
+                <ListView x:Name="orderListView"
+                          HasUnevenRows="True"
+                          SeparatorVisibility="None"
+                          AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                          AbsoluteLayout.LayoutFlags="All"
+                          ItemSelected="OrderListView_ItemSelected"
+                          Refreshing="OrderListView_Refreshing"
+                          IsPullToRefreshEnabled="True"
+                          
+                          >
+                    <ListView.Header>
+                        <StackLayout Padding="5,5,0,5" Orientation="Vertical">
+                            <Label Text="Aktuální servis" 
+                                   FontSize="Large"
+                                   >
+                            </Label>
+                            <BoxView BackgroundColor="#0277bd" HeightRequest="3" WidthRequest="100" HorizontalOptions="StartAndExpand"></BoxView>
+                        </StackLayout>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame HasShadow="True"
+                               Margin="0,5,0,5"
+                               CornerRadius="100"
+                               BorderColor="#03a9f4">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image HeightRequest="60" WidthRequest="60" Source="baseline_directions_car_black_48.png" VerticalOptions="Center"></Image>
+                                        <StackLayout Orientation="Vertical" 
+                                                 HorizontalOptions="StartAndExpand"
+                                                 Padding="50,0,0,0">
+                                            <Label FontSize="Small" Text="{Binding Datum, StringFormat='Datum: {0:dd/MM/yyyy}'}" ></Label>
+                                            <Label FontSize="Small" Text="{Binding Auto , StringFormat='Vozidlo: {0}'}"></Label>
+                                            <Label FontSize="Small" Text="{Binding Stav , StringFormat='Stav: {0}'}"></Label>
+                                        </StackLayout>
+                                        <AbsoluteLayout Margin="0,-20,-20,-20">
+                                            <BoxView BackgroundColor="#03a9f4"  
+                                                 AbsoluteLayout.LayoutBounds="1,1,50,1" 
+                                                 AbsoluteLayout.LayoutFlags="PositionProportional,HeightProportional">
+                                            </BoxView>
+                                        </AbsoluteLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </AbsoluteLayout>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

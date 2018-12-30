@@ -163,4 +163,7 @@
       <Name>Autoservis</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mesh-1430107_1280.png" />
+  </ItemGroup>
 </Project>

@@ -13,21 +13,28 @@ namespace Autoservis
     public partial class HistoryDetail : ContentPage
     {
         private OrderHistory Order;
+        
         public HistoryDetail(OrderHistory orderHistory)
         {
             if (orderHistory == null)
                 throw new ArgumentNullException();
-            this.Order = orderHistory;
-            BindingContext = orderHistory;
+            
+            
             InitializeComponent();
+            this.Order = orderHistory;
             Title = Order.Datum.ToString("dd/MM/yyyy") + " " + Order.Auto.ToString();
         }
         protected override async void OnAppearing()
         {
             var call = new RestApi();
             detailListView.ItemsSource = await call.GetOrderDetailsAsync(Order.Id); 
-
+           
             base.OnAppearing();
+        }
+
+        private void DetailListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            detailListView.SelectedItem = null;
         }
     }
 }
