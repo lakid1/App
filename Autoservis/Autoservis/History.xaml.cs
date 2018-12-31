@@ -21,12 +21,13 @@ namespace Autoservis
             InitializeComponent();
 
         }
-        protected override async void OnAppearing()
+        protected override void OnAppearing()
         {
-            
-            historyListView.ItemsSource = await call.GetOrderHistoriesAsync();
-
+            activityIndicator.IsRunning = true;
+            searchBar.IsVisible = false;
+            historyListView.BeginRefresh();
             base.OnAppearing();
+            historyListView.EndRefresh();
         }
 
         private async void HistoryListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -45,8 +46,26 @@ namespace Autoservis
 
         private async void HistoryListView_Refreshing(object sender, EventArgs e)
         {
-            historyListView.ItemsSource = await call.GetOrderHistoriesAsync();
+            try
+            {
+                errorListView.IsVisible = false;
+
+                historyListView.ItemsSource = await call.GetOrderHistoriesAsync();
+                searchBar.IsVisible = true;
+                activityIndicator.IsVisible = false;
+            }
+            catch
+            {
+                historyListView.ItemsSource = null;
+                errorListView.IsVisible = true;
+                activityIndicator.IsRunning = false;
+                searchBar.IsVisible = false;
+
+            }
+
             historyListView.EndRefresh();
+            activityIndicator.IsRunning = false;
+
         }
     }
 

@@ -35,14 +35,15 @@
 
             </AbsoluteLayout>
 
-            <AbsoluteLayout Padding="30,0,0,0">
+            <AbsoluteLayout Padding="30,30,30,0">
+
 
                 <StackLayout x:Name="errorListView" 
                              Orientation="Vertical" 
                              IsVisible="False" 
                              AbsoluteLayout.LayoutBounds="0.5,1,1,300"
                              AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
-                             Padding="0,50,0,0">
+                             Padding="0,0,0,0">
                     <Image Source="baseline_wifi_off_black_48.png" 
                            VerticalOptions="Center" 
                            HorizontalOptions="Center">
@@ -58,7 +59,7 @@
                              IsVisible="False" 
                              AbsoluteLayout.LayoutBounds="0.5,1,1,300"
                              AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
-                             Padding="0,50,0,0">
+                             Padding="0,0,0,0">
                     <Image Source="baseline_sentiment_very_satisfied_black_48.png" 
                            VerticalOptions="Center" 
                            HorizontalOptions="Center">
@@ -116,6 +117,12 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+                <ActivityIndicator x:Name="activityIndicator" 
+                                   AbsoluteLayout.LayoutBounds="0.5,0.5,70,70"
+                                   AbsoluteLayout.LayoutFlags="PositionProportional"
+                                   Color="Blue">
+                </ActivityIndicator>
+
             </AbsoluteLayout>
 
         </StackLayout>

@@ -27,8 +27,19 @@ namespace Autoservis
         protected override async void OnAppearing()
         {
             var call = new RestApi();
-            detailListView.ItemsSource = await call.GetOrderDetailsAsync(Order.Id); 
-           
+            try {
+                activityIndicator.IsRunning = true;
+                detailListView.ItemsSource = await call.GetOrderDetailsAsync(Order.Id);
+                activityIndicator.IsRunning = false;
+                activityIndicator.IsVisible = false;
+            }
+            catch
+            {
+               await DisplayAlert("Error", "Připojení k servru selhalo", "OK");
+                Navigation.RemovePage(this);
+            }
+
+
             base.OnAppearing();
         }
 

@@ -6,26 +6,61 @@
              MasterBehavior="Popover">
 
     <MasterDetailPage.Master>
-        
+
         <ContentPage Title="Master" Icon="hamburger.png">
             <StackLayout>
-            <ListView x:Name="listView" HasUnevenRows="True" ItemSelected="ListView_ItemSelected">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Orientation="Horizontal" Padding="10">
-                                <Image Source="{Binding Icon}"></Image>
-                                <Label Text="{Binding Name}" VerticalOptions="Center"></Label>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-                <StackLayout>
-                    <Button Text="Odhlásit se" Clicked="LogoutButton_Clicked"></Button>
+                <AbsoluteLayout>
+                    <BoxView BackgroundColor="#03a9f4"
+                         AbsoluteLayout.LayoutBounds="0,0,1,260" 
+                         AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional">
+
+                    </BoxView>
+                    <Image Source="baseline_account_circle_black_48.png"
+                           AbsoluteLayout.LayoutBounds="0.5,0.5,100,100"
+                           AbsoluteLayout.LayoutFlags="PositionProportional"
+                           >
+                    </Image>
+                    <Button Text="Profil"
+                            AbsoluteLayout.LayoutBounds="0.5,0.9,200,40"
+                            AbsoluteLayout.LayoutFlags="PositionProportional"
+                            BackgroundColor="White"
+                            BorderColor="#0277bd"
+                            BorderRadius="100"
+                            BorderWidth="2">
+                        
+                    </Button>
+                    <BoxView BackgroundColor="#0277bd"
+                         AbsoluteLayout.LayoutBounds="0,1,1,5" 
+                         AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional">
+
+                    </BoxView>
+                </AbsoluteLayout>
+                <ListView x:Name="listView" HasUnevenRows="True" ItemSelected="ListView_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" Padding="10">
+                                    <Image Source="{Binding Icon}"></Image>
+                                    <Label Text="{Binding Name}" VerticalOptions="Center"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <StackLayout Padding="30,0,30,30">
+
+                    <Button Text="Odhlásit se" 
+                                Clicked="LogoutButton_Clicked"
+                                BorderRadius="100"
+                                BackgroundColor="#03a9f4"
+                                TextColor="White"
+                                BorderColor="#0277bd"
+                                BorderWidth="1">
+                    </Button>
+
                 </StackLayout>
             </StackLayout>
-            
+
         </ContentPage>
     </MasterDetailPage.Master>
 

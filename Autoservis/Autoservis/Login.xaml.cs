@@ -23,15 +23,25 @@ namespace Autoservis
         {
             if (email.Text != null && password.Text != null)
             {
-                var call = new RestApi();
-                if (await call.Login(email.Text, password.Text))
+                activityIndicator.IsRunning = true;
+                try
                 {
-                    Application.Current.MainPage = new MenuPage();
+                    var call = new RestApi();
+                    if (await call.Login(email.Text, password.Text))
+                    {
+                        Application.Current.MainPage = new MenuPage();
+                    }
+                    else
+                    {
+                        await DisplayAlert("Error", "Nesprávné jméno nebo heslo", "OK");
+                    }
                 }
-                else
+                catch
                 {
-                    await DisplayAlert("Error", "Nesprávné jméno nebo heslo", "OK");
+                   await DisplayAlert("Error", "Připojení selhalo", "OK");
                 }
+                activityIndicator.IsRunning = false;
+
             }
             else
             {

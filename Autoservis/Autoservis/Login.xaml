@@ -6,6 +6,11 @@
              Title="Login">
     <ContentPage.Content>
         <AbsoluteLayout>
+            <ActivityIndicator Color="Blue" 
+                               x:Name="activityIndicator"
+                               AbsoluteLayout.LayoutBounds="0.5,0.5,70,70" 
+                               AbsoluteLayout.LayoutFlags="PositionProportional">
+            </ActivityIndicator>
             <StackLayout>
                 <Label FontSize="Large" Text="Vítejte v aplikaci Můj Autoservis"></Label>
                 <Label FontSize="Medium"  Text="Prosím přihlaste se"></Label>

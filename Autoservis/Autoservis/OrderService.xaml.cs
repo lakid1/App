@@ -46,7 +46,7 @@ namespace Autoservis
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            if (_id == 0 || _date.ToString() == "")
+            if (_id == 0)
             {
                 return;
             }
@@ -56,6 +56,7 @@ namespace Autoservis
                 if (result == true)
                 {
                     await DisplayAlert("Objednávka", "Vaše objednávka byla přijata", "OK");
+                    Navigation.RemovePage(this);
                 }
                 else
                 {
@@ -63,7 +64,7 @@ namespace Autoservis
 
                 }
             }
-            
+
         }
 
         private void DatePicker_DateSelected(object sender, DateChangedEventArgs e)

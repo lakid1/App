@@ -17,21 +17,21 @@ namespace Autoservis
         public DashBoard()
         {
             InitializeComponent();
-
+            
             image.Source = ImageSource.FromResource("Autoservis.Images.control-751334_1280.jpg");
-                        
+                       
         }
         protected override void OnAppearing()
         {
-            Refresh();
-            orderListView.IsRefreshing = false;
-
+            activityIndicator.IsRunning = true;
+            orderListView.BeginRefresh();
             base.OnAppearing();
-
+            orderListView.EndRefresh();
         }
+       
         private void Refresh()
         {
-            orderListView.BeginRefresh();
+            
         }
         private async void OrderListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
@@ -75,9 +75,11 @@ namespace Autoservis
                 hideListView.IsVisible = false;
                 orderListView.ItemsSource = null;
 
-                errorListView.IsVisible = true;         //Conection Error
+                errorListView.IsVisible = true;
+                activityIndicator.IsRunning = false;    //Conection Error
             }
             orderListView.IsRefreshing = false;
+            activityIndicator.IsRunning = false;
         }
 
         private async void Button_Clicked(object sender, EventArgs e)

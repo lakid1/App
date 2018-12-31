@@ -5,9 +5,31 @@
              Title="Historie"
              >
     <ContentPage.Content>
-        <StackLayout Padding="30,0,30,0">
+        <StackLayout Padding="15,0,30,0">
+            <AbsoluteLayout>
+                <ActivityIndicator Color="Blue" 
+                               x:Name="activityIndicator"
+                               AbsoluteLayout.LayoutBounds="0.5,0.5,70,70" 
+                                   AbsoluteLayout.LayoutFlags="PositionProportional">
+                </ActivityIndicator>
+            </AbsoluteLayout>
+
+            <StackLayout x:Name="errorListView" 
+                             Orientation="Vertical" 
+                             IsVisible="False" 
+                              VerticalOptions="Center" 
+                           HorizontalOptions="Center">
+                <Image Source="baseline_wifi_off_black_48.png" 
+                           >
+                </Image>
+                <Label FontSize="Large" Text="Chyba připojení, zkontrolujte své připojení k Internetu" 
+                          >
+                </Label>
+            </StackLayout>
+
             <SearchBar Placeholder="Vyhledat..." 
-                       TextChanged="SearchBar_TextChanged"></SearchBar>
+                       TextChanged="SearchBar_TextChanged"
+                       x:Name="searchBar"></SearchBar>
             <ListView x:Name="historyListView" 
                       ItemSelected="HistoryListView_ItemSelected" 
                       SeparatorVisibility="None" 

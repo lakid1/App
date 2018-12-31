@@ -6,6 +6,11 @@
 
     <ContentPage.Content>
         <StackLayout Padding="30,0,30,0">
+            <ActivityIndicator Color="Blue" 
+                               x:Name="activityIndicator"
+                               AbsoluteLayout.LayoutBounds="0.5,0.5,70,70" 
+                                   AbsoluteLayout.LayoutFlags="PositionProportional">
+            </ActivityIndicator>
             <ListView x:Name="detailListView"
                       SeparatorVisibility="None" 
                       HasUnevenRows="True"
