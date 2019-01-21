@@ -15,12 +15,12 @@ namespace Autoservis
         public InitPage()
         {
             InitializeComponent();
-
         }
         protected override void OnAppearing()
         {
 
             CheckToken();
+
 
         }
         public void CheckToken()

@@ -26,7 +26,8 @@
                             BackgroundColor="White"
                             BorderColor="#0277bd"
                             BorderRadius="100"
-                            BorderWidth="2">
+                            BorderWidth="2"
+                            Clicked="ProfileButton_Clicked">
                         
                     </Button>
                     <BoxView BackgroundColor="#0277bd"

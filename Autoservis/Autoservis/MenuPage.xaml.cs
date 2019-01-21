@@ -42,5 +42,10 @@ namespace Autoservis
             app.ExpireDate = "";
             app.MainPage = new Login();
         }
+
+        private async void ProfileButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new Profile());
+        }
     }
 }

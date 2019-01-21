@@ -22,7 +22,6 @@ namespace Autoservis
             InitializeComponent();
             //<a href="https://www.freepik.com/free-vector/abstract-blue-background_859016.htm">Designed by Kjpargeter</a>
 
-            image.Source = ImageSource.FromResource("Autoservis.Images.1511.jpg");
 
         }
         protected override async void OnAppearing()

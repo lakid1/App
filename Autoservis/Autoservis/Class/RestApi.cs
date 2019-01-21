@@ -120,5 +120,22 @@ namespace Autoservis
             return false;
 
         }
+
+        public async Task<UserInfo> GetUserInfoAsync()
+        {
+
+            var user = new User { Token = app.Token };
+            var content = JsonConvert.SerializeObject(user);
+            var responseMessage = await client.PostAsync(webAdress + "user/userInfo.php",
+                new StringContent(content, Encoding.UTF8, "aplication/json"));
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var response = JsonConvert.DeserializeObject<UserInfo>(await responseMessage.Content.ReadAsStringAsync());
+                return response;
+
+            }
+            return null;
+
+        }
     }
 }
