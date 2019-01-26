@@ -3,11 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Autoservis.Profile"
              Title="Profil">
+
     <ContentPage.Content>
         <StackLayout>
 
             <StackLayout>
-                <TableView Intent="Form" HeightRequest="350" x:Name="userInfo">
+                <TableView Intent="Form" x:Name="userInfo">
                     <TableRoot>
                         <TableSection Title="Informace">
                             <ViewCell>
@@ -62,27 +63,42 @@
                                     </Label>
                                 </StackLayout>
                             </ViewCell>
+
+
+                        </TableSection>
+                        <TableSection>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Button Text="Upravit Profil" HorizontalOptions="Center" Clicked="Button_Clicked_1"></Button>
+                                </StackLayout>
+                            </ViewCell>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Button Text="Změnit Heslo" HorizontalOptions="Center" Clicked="Button_Clicked_2"></Button>
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                        <TableSection>
+                            <ViewCell>
+                                <StackLayout>
+
+                                    <Button Text="Zpět" 
+                                            Clicked="Button_Clicked"
+                                            BackgroundColor="#03a9f4"
+                                            TextColor="White"
+                                            BorderColor="#0277bd"
+                                            BorderWidth="2"
+                                            VerticalOptions="Center">
+                                    </Button>
+                                </StackLayout>
+                            </ViewCell>
                         </TableSection>
                     </TableRoot>
                 </TableView>
+
             </StackLayout>
 
-            <StackLayout Padding="50,0,50,0">
-                
-            <Button Text="Zpět" 
-                                Clicked="Button_Clicked"
-                                BorderRadius="100"
-                                BackgroundColor="#03a9f4"
-                                TextColor="White"
-                                BorderColor="#0277bd"
-                                BorderWidth="2"
-                  
-                    VerticalOptions="Center"
-                    
-                    
-                    >
-            </Button>
-            </StackLayout>
+
 
 
         </StackLayout>

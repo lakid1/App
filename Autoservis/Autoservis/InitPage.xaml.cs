@@ -15,13 +15,13 @@ namespace Autoservis
         public InitPage()
         {
             InitializeComponent();
+            
         }
         protected override void OnAppearing()
         {
-
             CheckToken();
 
-
+            base.OnAppearing();
         }
         public void CheckToken()
         {
@@ -39,7 +39,7 @@ namespace Autoservis
                 else
                 {
                     app.MainPage = new MenuPage();
-                    
+
                 }
 
             }

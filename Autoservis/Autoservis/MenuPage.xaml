@@ -7,7 +7,12 @@
 
     <MasterDetailPage.Master>
 
-        <ContentPage Title="Master" Icon="hamburger.png">
+        <ContentPage Title="Master" Icon="baseline_menu_black_24.png">
+            <ContentPage.Padding>
+                <OnPlatform x:TypeArguments="Thickness"
+                    iOS="0,20,0,0">
+                </OnPlatform>
+            </ContentPage.Padding>
             <StackLayout>
                 <AbsoluteLayout>
                     <BoxView BackgroundColor="#03a9f4"
@@ -15,8 +20,8 @@
                          AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional">
 
                     </BoxView>
-                    <Image Source="baseline_account_circle_black_48.png"
-                           AbsoluteLayout.LayoutBounds="0.5,0.5,100,100"
+                    <Image Source="baseline_account_circle_white_48pt_3x.png"
+                           AbsoluteLayout.LayoutBounds="0.5,0.5,144,144"
                            AbsoluteLayout.LayoutFlags="PositionProportional"
                            >
                     </Image>
@@ -25,7 +30,6 @@
                             AbsoluteLayout.LayoutFlags="PositionProportional"
                             BackgroundColor="White"
                             BorderColor="#0277bd"
-                            BorderRadius="100"
                             BorderWidth="2"
                             Clicked="ProfileButton_Clicked">
                         
@@ -52,7 +56,6 @@
 
                     <Button Text="Odhlásit se" 
                                 Clicked="LogoutButton_Clicked"
-                                BorderRadius="100"
                                 BackgroundColor="#03a9f4"
                                 TextColor="White"
                                 BorderColor="#0277bd"

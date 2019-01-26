@@ -11,5 +11,6 @@ namespace Autoservis
         public string Token { get; set; }
         public string Date { get; set; }
         public int Id { get; set; }
+        public string NewPassword { get; set; }
     }
 }

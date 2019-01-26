@@ -17,9 +17,15 @@ namespace Autoservis
         public DashBoard()
         {
             InitializeComponent();
-            
+
             image.Source = ImageSource.FromResource("Autoservis.Images.control-751334_1280.jpg");
-                       
+            if(Device.RuntimePlatform == Device.iOS)
+            {
+                //var frame = this.FindByName<Frame>("frameOrder");
+                //frame.CornerRadius = 100;
+                
+            }
+                     
         }
         protected override void OnAppearing()
         {
@@ -35,7 +41,7 @@ namespace Autoservis
         }
         private async void OrderListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-
+            
             if (e.SelectedItem == null)
                 return;
 
@@ -74,6 +80,7 @@ namespace Autoservis
             {
                 hideListView.IsVisible = false;
                 orderListView.ItemsSource = null;
+                orderListView.IsVisible = false;
 
                 errorListView.IsVisible = true;
                 activityIndicator.IsRunning = false;    //Conection Error

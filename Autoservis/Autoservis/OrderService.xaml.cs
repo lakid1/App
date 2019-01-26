@@ -20,7 +20,6 @@ namespace Autoservis
         public OrderService()
         {
             InitializeComponent();
-            //<a href="https://www.freepik.com/free-vector/abstract-blue-background_859016.htm">Designed by Kjpargeter</a>
 
 
         }

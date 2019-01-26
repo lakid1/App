@@ -12,14 +12,14 @@ namespace Autoservis
         public App()
         {
             InitializeComponent();
-
-            MainPage = new InitPage();
-           
         }
 
         protected override void OnStart()
         {
             // Handle when your app starts
+            Current.Properties.Clear();
+            CheckToken();
+
         }
 
         protected override void OnSleep()
@@ -31,12 +31,38 @@ namespace Autoservis
         {
             // Handle when your app resumes
         }
+        public void CheckToken()
+        {
+            if (Token != "")
+            {
+                DateTime dateNow = DateTime.Now;
+                var dateEx = DateTime.Parse(ExpireDate);
+                if (dateNow > dateEx)
+                {
+                    Current.Properties.Clear();
+                    MainPage = new Login();
+                }
+                else
+                {
+                    MainPage = new MenuPage();
+
+                }
+
+            }
+            else
+            {
+                MainPage = new Login();
+            }
+            
+        }
         public string Token
         {
             get
             {
                 if (Properties.ContainsKey("token"))
+                {
                     return Properties["token"].ToString();
+                }
 
                 return "";
             }
@@ -44,14 +70,16 @@ namespace Autoservis
             {
                 Properties["token"] = value;
             }
-            
+
         }
         public string ExpireDate
         {
             get
             {
                 if (Properties.ContainsKey("date"))
+                {
                     return Properties["date"].ToString();
+                }
 
                 return "";
             }

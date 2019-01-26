@@ -23,8 +23,10 @@ namespace Autoservis
         }
         protected override void OnAppearing()
         {
+           
             activityIndicator.IsRunning = true;
             searchBar.IsVisible = false;
+            historyListView.IsVisible = false;
             historyListView.BeginRefresh();
             base.OnAppearing();
             historyListView.EndRefresh();
@@ -52,6 +54,7 @@ namespace Autoservis
 
                 historyListView.ItemsSource = await call.GetOrderHistoriesAsync();
                 searchBar.IsVisible = true;
+                historyListView.IsVisible = true;
                 activityIndicator.IsVisible = false;
             }
             catch

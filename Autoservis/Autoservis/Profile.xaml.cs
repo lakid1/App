@@ -34,5 +34,17 @@ namespace Autoservis
         {
             Navigation.PopModalAsync();
         }
+
+        // Upravit Profil
+        private async void Button_Clicked_1(object sender, EventArgs e)
+        {
+            await DisplayAlert("Upozornění", "Pro úpravu kontaktních údajů použijte stránky Autoservisu", "OK");
+        }
+
+        // Změnit heslo
+        private async void Button_Clicked_2(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new ChangePassword());
+        }
     }
 }

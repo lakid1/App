@@ -14,7 +14,13 @@ namespace Autoservis
     {
         public Login()
         {
+            //if (Device.RuntimePlatform == Device.iOS)
+            //{
+            //    this.Padding = new Thickness(0, 20, 0, 0);
+            //}
             InitializeComponent();
+            //var app = Application.Current as App;
+            //DisplayAlert("Test", app.Token + "/" + app.ExpireDate, "OK");
         }
 
 
@@ -23,7 +29,7 @@ namespace Autoservis
         {
             if (email.Text != null && password.Text != null)
             {
-                activityIndicator.IsRunning = true;
+               // activityIndicator.IsRunning = true;
                 try
                 {
                     var call = new RestApi();
@@ -40,7 +46,7 @@ namespace Autoservis
                 {
                    await DisplayAlert("Error", "Připojení selhalo", "OK");
                 }
-                activityIndicator.IsRunning = false;
+                //activityIndicator.IsRunning = false;
 
             }
             else
