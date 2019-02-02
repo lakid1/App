@@ -14,7 +14,8 @@ namespace Autoservis
     {
 
         private HttpClient client = new HttpClient();
-        private string webAdress = "http://192.168.1.107:80/Api/api/";
+        //private string webAdress = "http://localhost/Api/api/";
+        private string webAdress = "http://mujautoservis.8u.cz/Api/api/";
         private App app = Application.Current as App;
 
         public async Task<bool> ChangePassword(string newPassword, string oldPassword)

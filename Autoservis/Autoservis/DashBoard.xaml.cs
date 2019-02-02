@@ -18,7 +18,7 @@ namespace Autoservis
         {
             InitializeComponent();
 
-            image.Source = ImageSource.FromResource("Autoservis.Images.control-751334_1280.jpg");
+            //image.Source = ImageSource.FromResource("Autoservis.Images.control-751334_1280.jpg");
             if(Device.RuntimePlatform == Device.iOS)
             {
                 //var frame = this.FindByName<Frame>("frameOrder");

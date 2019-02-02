@@ -25,11 +25,20 @@ namespace Autoservis
         }
         protected override async void OnAppearing()
         {
-            _cars = await call.GetCarsAsync();
-            foreach (var method in _cars)
+            try
             {
-                vozidloPicker.Items.Add(method.Spz + " " + method.Znacka + " " + method.Model + " " + method.Rok);
+                _cars = await call.GetCarsAsync();
+                foreach (var method in _cars)
+                {
+                    vozidloPicker.Items.Add(method.Spz + " " + method.Znacka + " " + method.Model + " " + method.Rok);
+                }
             }
+            catch
+            {
+                await DisplayAlert("Upozornění", "Chyba připojení", "OK");
+                await Navigation.PopAsync();
+            }
+
             base.OnAppearing();
         }
 

@@ -29,7 +29,8 @@ namespace Autoservis
         {
             if (email.Text != null && password.Text != null)
             {
-               // activityIndicator.IsRunning = true;
+                activityIndicator.IsVisible = true;
+                activityIndicator.IsRunning = true;
                 try
                 {
                     var call = new RestApi();
@@ -46,7 +47,8 @@ namespace Autoservis
                 {
                    await DisplayAlert("Error", "Připojení selhalo", "OK");
                 }
-                //activityIndicator.IsRunning = false;
+                activityIndicator.IsRunning = false;
+                activityIndicator.IsVisible = false;
 
             }
             else

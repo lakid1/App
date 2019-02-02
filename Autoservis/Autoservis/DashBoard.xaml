@@ -7,7 +7,115 @@
 
     <ContentPage.Content>
 
-        <StackLayout>
+        <Grid>
+            <StackLayout x:Name="errorListView" 
+                             Orientation="Vertical" 
+                             IsVisible="False" 
+                              Grid.Row="0"  Grid.Column="0"
+                             >
+                <Image Source="baseline_wifi_off_black_48.png" 
+                           VerticalOptions="Center" 
+                           HorizontalOptions="Center">
+                </Image>
+            </StackLayout>
+
+            <StackLayout x:Name="hideListView" 
+                             Orientation="Vertical" 
+                             IsVisible="False" 
+                              Grid.Row="0"  Grid.Column="0"
+                             >
+                <Image Source="baseline_sentiment_very_satisfied_black_48.png" 
+                           VerticalOptions="Center" 
+                           HorizontalOptions="Center">
+                </Image>
+                <Label FontSize="Large" Text="Všechny vozy jsou v pořádku u Vás doma" 
+                           VerticalOptions="Center" 
+                           HorizontalOptions="Center">
+                </Label>
+            </StackLayout>
+
+            <ListView x:Name="orderListView"
+                          HasUnevenRows="True"
+                          SeparatorVisibility="None"
+                           Grid.Row="0"  Grid.Column="0"
+                          ItemSelected="OrderListView_ItemSelected"
+                          Refreshing="OrderListView_Refreshing"
+                          IsPullToRefreshEnabled="True"
+                          
+                          >
+                <ListView.Header>
+                    <StackLayout Padding="5,5,0,5" Orientation="Vertical">
+                        <Label Text="Aktuální servis" 
+                                   FontSize="Large"
+                                   >
+                        </Label>
+                        <BoxView BackgroundColor="#0277bd" 
+                                     HeightRequest="3" 
+                                     WidthRequest="100" 
+                                     HorizontalOptions="StartAndExpand">
+
+                        </BoxView>
+                    </StackLayout>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame HasShadow="True" x:Name="frameOrder"
+                               Margin="10,5,10,5"
+                               CornerRadius="2"
+                               BorderColor="#03a9f4">
+                                <StackLayout
+                                        Orientation="Horizontal">
+                                    <Image HeightRequest="60" 
+                                               WidthRequest="60" 
+                                               Source="baseline_directions_car_black_48.png"
+                                               VerticalOptions="Center">
+
+                                    </Image>
+                                    <StackLayout Orientation="Vertical" 
+                                                 HorizontalOptions="StartAndExpand"
+                                                 Padding="30,0,0,0">
+                                        <Label FontSize="Small" Text="{Binding Datum, StringFormat='Datum: {0:dd/MM/yyyy}'}" ></Label>
+                                        <BoxView Color="Gray" HeightRequest="1"></BoxView>
+                                        <Label FontSize="Small" Text="{Binding Auto , StringFormat='Vozidlo: {0}'}"></Label>
+                                        <BoxView Color="Gray" HeightRequest="1"></BoxView>
+                                        <Label FontSize="Small" Text="{Binding Stav , StringFormat='Stav: {0}'}"></Label>
+                                        <BoxView Color="Gray" HeightRequest="1"></BoxView>
+                                    </StackLayout>
+                                    <AbsoluteLayout Margin="0,-20,-20,-20">
+                                        <BoxView BackgroundColor="#03a9f4"  
+                                                 AbsoluteLayout.LayoutBounds="1,1,50,1" 
+                                                 AbsoluteLayout.LayoutFlags="PositionProportional,HeightProportional">
+                                        </BoxView>
+                                    </AbsoluteLayout>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+            <ActivityIndicator x:Name="activityIndicator" 
+                                    Grid.Row="0"  Grid.Column="0"
+                                   Color="Blue">
+            </ActivityIndicator>
+            <Button  Image="baseline_add_white_48pt_2x.png"
+                     Grid.Row="0" 
+                     Grid.Column="0" 
+                     BackgroundColor="#0277bd"
+                     Clicked="Button_Clicked"
+                     VerticalOptions="End" 
+                     HorizontalOptions="End" 
+                     CornerRadius="100"
+                     WidthRequest="100" 
+                     HeightRequest="100"
+                     Margin="0,0,50,50">
+                     
+            </Button>
+
+
+        </Grid>
+        <!--<StackLayout>
             <AbsoluteLayout>
 
                 <Image x:Name="image" 
@@ -22,9 +130,9 @@
                              AbsoluteLayout.LayoutFlags="PositionProportional"
                              VerticalOptions="Center">
 
-                    <!--<Frame BorderColor="#03a9f4"
+                    --><!--<Frame BorderColor="#03a9f4"
                            CornerRadius="100"
-                           Padding="2">-->
+                           Padding="2">--><!--
                     <Button Text="Objednat Servis" 
                                 BackgroundColor="#0277bd" 
                                 BorderColor="#03a9f4"
@@ -33,7 +141,8 @@
                                 Clicked="Button_Clicked"
                                 WidthRequest="300">
                     </Button>
-                    <!--</Frame>-->
+
+                    --><!--</Frame>--><!--
                 </StackLayout>
 
             </AbsoluteLayout>
@@ -129,6 +238,7 @@
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
+
                 </ListView>
                 <ActivityIndicator x:Name="activityIndicator" 
                                    AbsoluteLayout.LayoutBounds="0.5,0.5,70,70"
@@ -138,6 +248,6 @@
 
             </AbsoluteLayout>
 
-        </StackLayout>
+        </StackLayout>-->
     </ContentPage.Content>
 </ContentPage>

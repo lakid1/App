@@ -12,12 +12,13 @@ namespace Autoservis
         public App()
         {
             InitializeComponent();
+            //MainPage = new Test();
         }
 
         protected override void OnStart()
         {
             // Handle when your app starts
-            Current.Properties.Clear();
+            //Current.Properties.Clear();
             CheckToken();
 
         }
