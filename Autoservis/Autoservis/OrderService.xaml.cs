@@ -59,17 +59,26 @@ namespace Autoservis
             }
             else
             {
-                var result = await call.AddOrderAsync(_id, _date);
-                if (result == true)
+                try
                 {
-                    await DisplayAlert("Objednávka", "Vaše objednávka byla přijata", "OK");
-                    Navigation.RemovePage(this);
+                    var result = await call.AddOrderAsync(_id, _date);
+                    if (result == true)
+                    {
+                        await DisplayAlert("Objednávka", "Vaše objednávka byla přijata", "OK");
+                        Navigation.RemovePage(this);
+                    }
+                    else
+                    {
+                        await DisplayAlert("Objednávka", "Omluváme se, ale na tento den již máme plný stav.", "OK");
+
+                    }
                 }
-                else
-                {
-                    await DisplayAlert("Objednávka", "Chyba!!!", "OK");
+                catch{
+                    await DisplayAlert("Upozornění", "Chyba připojení", "OK");
 
                 }
+
+
             }
 
         }

@@ -15,28 +15,14 @@ namespace Autoservis
 
         private HttpClient client = new HttpClient();
         //private string webAdress = "http://localhost/Api/api/";
-        private string webAdress = "http://mujautoservis.8u.cz/Api/api/";
+        private string webAdress = "http://mujautoservis.8u.cz/";
         private App app = Application.Current as App;
 
-        public async Task<bool> ChangePassword(string newPassword, string oldPassword)
-        {
-            var user = new User { Token = app.Token, Password = oldPassword, NewPassword = newPassword };
-            var content = JsonConvert.SerializeObject(user);
-            var responseMessage = await client.PostAsync(webAdress + "user/changePassword.php", new StringContent(content, Encoding.UTF8, "application/json"));
-            if (responseMessage.IsSuccessStatusCode)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
         public async Task<bool> Login(string email, string password)
         {
             var user = new User { Email = email, Password = password };
             var content = JsonConvert.SerializeObject(user);
-            var responseMessage = await client.PostAsync(webAdress + "user/login.php", new StringContent(content, Encoding.UTF8, "application/json"));
+            var responseMessage = await client.PostAsync(webAdress + "Api/api/user/login.php", new StringContent(content, Encoding.UTF8, "application/json"));
             if (responseMessage.IsSuccessStatusCode)
             {
                 var response = JsonConvert.DeserializeObject<User>(await responseMessage.Content.ReadAsStringAsync());
@@ -50,12 +36,27 @@ namespace Autoservis
             return false;
         }
 
+        public async Task<bool> ChangePassword(string newPassword, string oldPassword)
+        {
+            var user = new User { Token = app.Token, Password = oldPassword, NewPassword = newPassword };
+            var content = JsonConvert.SerializeObject(user);
+            var responseMessage = await client.PostAsync(webAdress + "Api/api/user/changePassword.php", new StringContent(content, Encoding.UTF8, "application/json"));
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public async Task<IEnumerable<OrderHistory>> GetOrderHistoriesAsync(string searchText = null)
         {
 
             var user = new User { Token = app.Token };
             var content = JsonConvert.SerializeObject(user);
-            var responseMessage = await client.PostAsync(webAdress + "order/readHistory.php", new StringContent(content, Encoding.UTF8, "application/json"));
+            var responseMessage = await client.PostAsync(webAdress + "Api/api/order/readHistory.php", new StringContent(content, Encoding.UTF8, "application/json"));
             if (responseMessage.IsSuccessStatusCode)
             {
                 var response = JsonConvert.DeserializeObject<IEnumerable<OrderHistory>>(await responseMessage.Content.ReadAsStringAsync());
@@ -74,7 +75,7 @@ namespace Autoservis
 
             var user = new User { Token = app.Token, Id = id };
             var content = JsonConvert.SerializeObject(user);
-            var responseMessage = await client.PostAsync(webAdress + "order/readDetail.php",
+            var responseMessage = await client.PostAsync(webAdress + "Api/api/order/readDetail.php",
                 new StringContent(content, Encoding.UTF8, "application/json"));
             if (responseMessage.IsSuccessStatusCode)
             {
@@ -90,7 +91,7 @@ namespace Autoservis
 
             var user = new User { Token = app.Token };
             var content = JsonConvert.SerializeObject(user);
-            var responseMessage = await client.PostAsync(webAdress + "order/read.php",
+            var responseMessage = await client.PostAsync(webAdress + "Api/api/order/read.php",
                 new StringContent(content, Encoding.UTF8, "application/json"));
             if (responseMessage.IsSuccessStatusCode)
             {
@@ -106,7 +107,7 @@ namespace Autoservis
         {
             var user = new User { Token = app.Token };
             var content = JsonConvert.SerializeObject(user);
-            var responseMessage = await client.PostAsync(webAdress + "order/readCars.php",
+            var responseMessage = await client.PostAsync(webAdress + "Api/api/order/readCars.php",
                 new StringContent(content, Encoding.UTF8, "application/json"));
             if (responseMessage.IsSuccessStatusCode)
             {
@@ -123,7 +124,7 @@ namespace Autoservis
             
             var user = new User { Token = app.Token, Date = Datum.ToString("yyyy-MM-dd"), Id = Id };
             var content = JsonConvert.SerializeObject(user);
-            var responseMessage = await client.PostAsync(webAdress + "order/create.php",
+            var responseMessage = await client.PostAsync(webAdress + "Api/api/order/create.php",
                 new StringContent(content, Encoding.UTF8, "application/json"));
             if (responseMessage.IsSuccessStatusCode)
             {
@@ -139,7 +140,7 @@ namespace Autoservis
 
             var user = new User { Token = app.Token };
             var content = JsonConvert.SerializeObject(user);
-            var responseMessage = await client.PostAsync(webAdress + "user/userInfo.php",
+            var responseMessage = await client.PostAsync(webAdress + "Api/api/user/userInfo.php",
                 new StringContent(content, Encoding.UTF8, "application/json"));
             if (responseMessage.IsSuccessStatusCode)
             {
