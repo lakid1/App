@@ -12,5 +12,7 @@ namespace Autoservis
         public string Date { get; set; }
         public int Id { get; set; }
         public string NewPassword { get; set; }
+        public string Zavada { get; set; }
+
     }
 }

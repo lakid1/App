@@ -95,7 +95,7 @@
                                     Grid.Row="0"  Grid.Column="0"
                                    Color="Blue">
             </ActivityIndicator>
-            <Button  Image="baseline_add_white_48pt_2x.png"
+            <Button  Image="baseline_add_white_48.png"
                      Grid.Row="0" 
                      Grid.Column="0" 
                      BackgroundColor="#0277bd"
@@ -103,9 +103,9 @@
                      VerticalOptions="End" 
                      HorizontalOptions="End" 
                      CornerRadius="100"
-                     WidthRequest="100" 
-                     HeightRequest="100"
-                     Margin="0,0,50,50">
+                     WidthRequest="70" 
+                     HeightRequest="70"
+                     Margin="0,0,35,35">
 
             </Button>
 

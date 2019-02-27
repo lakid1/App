@@ -53,7 +53,7 @@ namespace Autoservis
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            if (_id == 0)
+            if (_id == 0 || zavada.Text == null)
             {
                 return;
             }
@@ -61,7 +61,7 @@ namespace Autoservis
             {
                 try
                 {
-                    var result = await call.AddOrderAsync(_id, _date);
+                    var result = await call.AddOrderAsync(_id, _date, zavada.Text);
                     if (result == true)
                     {
                         await DisplayAlert("Objednávka", "Vaše objednávka byla přijata", "OK");

@@ -27,6 +27,11 @@
                     </DatePicker>
                 </StackLayout>
 
+                <StackLayout Orientation="Vertical">
+                    <Label Text="Důvod: "></Label>
+                    <Entry x:Name="zavada" Placeholder="např.: garanční prohlídka"></Entry>
+                </StackLayout>
+
                 <StackLayout Padding="0,10,0,0">
                     <Label Text="Vozidlo: "></Label>
                     <Picker x:Name="vozidloPicker" Title="Vyber vozidlo" 
@@ -35,14 +40,14 @@
                     </Picker>
                 </StackLayout>
 
-
-            </StackLayout>
-
-            <Button Text="Objednat" 
+                <Button Text="Objednat" 
                     Clicked="Button_Clicked"
                     BackgroundColor="White"
                     >
-            </Button>
+                </Button>
+            </StackLayout>
+
+           
         </StackLayout>
         <!--<AbsoluteLayout>
             <Image Source="baseline_create_black_48.png"

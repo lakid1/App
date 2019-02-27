@@ -118,11 +118,12 @@ namespace Autoservis
             return null;
         }
 
-        public async Task<bool> AddOrderAsync(int Id, DateTime Datum)
+        public async Task<bool> AddOrderAsync(int Id, DateTime Datum, string Zavada)
         {
 
             
-            var user = new User { Token = app.Token, Date = Datum.ToString("yyyy-MM-dd"), Id = Id };
+            var user = new User { Token = app.Token, Date = Datum.ToString("yyyy-MM-dd"), Id = Id, Zavada = Zavada };
+           
             var content = JsonConvert.SerializeObject(user);
             var responseMessage = await client.PostAsync(webAdress + "Api/api/order/create.php",
                 new StringContent(content, Encoding.UTF8, "application/json"));

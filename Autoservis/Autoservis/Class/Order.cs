@@ -10,5 +10,6 @@ namespace Autoservis.Class
         public DateTime Datum { get; set; }
         public string Auto { get; set; }
         public string Stav { get; set; }
+        
     }
 }

@@ -2373,7 +2373,7 @@ namespace Autoservis.Droid
 			public const int baseline_account_circle_white_48pt_3x = 2130837589;
 			
 			// aapt resource value: 0x7f020056
-			public const int baseline_add_white_48pt_2x = 2130837590;
+			public const int baseline_add_white_48 = 2130837590;
 			
 			// aapt resource value: 0x7f020057
 			public const int baseline_build_black_48pt = 2130837591;

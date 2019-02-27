@@ -332,4 +332,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\baseline_add_white_48pt_2x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\baseline_add_white_48.png" />
+  </ItemGroup>
 </Project>
